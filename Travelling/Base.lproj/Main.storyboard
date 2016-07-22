@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Login-->
@@ -18,40 +19,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53r-Wv-h1g" customClass="GIDSignInButton">
-                                <rect key="frame" x="229" y="284" width="142" height="34"/>
+                                <rect key="frame" x="229" y="335" width="142" height="38"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqB-AF-v8G" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="229" y="230" width="142" height="38"/>
+                                <rect key="frame" x="229" y="281" width="142" height="38"/>
                                 <color key="backgroundColor" red="0.048162445425987244" green="0.49155133962631226" blue="0.90687280893325806" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLX-rj-aep">
-                                <rect key="frame" x="229" y="331" width="142" height="36"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="2Gf-ON-aWm"/>
-                                    <constraint firstAttribute="width" constant="142" id="3YD-jX-b7Y"/>
+                                    <constraint firstAttribute="width" constant="142" id="CUE-FX-hYD"/>
+                                    <constraint firstAttribute="width" secondItem="nqB-AF-v8G" secondAttribute="height" multiplier="71:19" id="ZNF-Sj-kXp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="SMS Verification">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="53r-Wv-h1g" firstAttribute="trailing" secondItem="ZLX-rj-aep" secondAttribute="trailing" id="4su-0Y-TlX"/>
-                            <constraint firstItem="53r-Wv-h1g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="220" id="IS3-sr-I00"/>
-                            <constraint firstItem="nqB-AF-v8G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MZm-bP-qun"/>
-                            <constraint firstItem="53r-Wv-h1g" firstAttribute="leading" secondItem="ZLX-rj-aep" secondAttribute="leading" id="OPJ-ua-fxN"/>
-                            <constraint firstItem="53r-Wv-h1g" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="284" id="Rkz-Ez-ujD"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="53r-Wv-h1g" secondAttribute="bottom" constant="282" id="e0P-FU-ENh"/>
-                            <constraint firstItem="nqB-AF-v8G" firstAttribute="trailing" secondItem="53r-Wv-h1g" secondAttribute="trailing" id="gYb-1s-rL6"/>
-                            <constraint firstItem="nqB-AF-v8G" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="166" id="i3q-Pc-fKb"/>
-                            <constraint firstItem="53r-Wv-h1g" firstAttribute="top" secondItem="nqB-AF-v8G" secondAttribute="bottom" constant="16" id="swN-QR-eYd"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZLX-rj-aep" secondAttribute="bottom" constant="233" id="uB6-cH-IhS"/>
-                            <constraint firstItem="ZLX-rj-aep" firstAttribute="top" secondItem="53r-Wv-h1g" secondAttribute="bottom" constant="13" id="wr7-ci-5wO"/>
-                            <constraint firstItem="nqB-AF-v8G" firstAttribute="leading" secondItem="53r-Wv-h1g" secondAttribute="leading" id="yL0-UA-0Xw"/>
+                            <constraint firstItem="53r-Wv-h1g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MQK-LE-iTU"/>
+                            <constraint firstItem="53r-Wv-h1g" firstAttribute="height" secondItem="nqB-AF-v8G" secondAttribute="height" id="RQV-Y9-6Ns"/>
+                            <constraint firstItem="nqB-AF-v8G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RgB-A1-sUu"/>
+                            <constraint firstItem="nqB-AF-v8G" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eVj-ao-cNr"/>
+                            <constraint firstItem="53r-Wv-h1g" firstAttribute="width" secondItem="nqB-AF-v8G" secondAttribute="width" id="f2z-h8-OGU"/>
+                            <constraint firstItem="53r-Wv-h1g" firstAttribute="top" secondItem="nqB-AF-v8G" secondAttribute="bottom" constant="16" id="nNQ-TU-zdm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="DTR-H8-JKC"/>
