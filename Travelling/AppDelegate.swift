@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        UINavigationBar.appearance().barTintColor = UIColor.blackColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
