@@ -38,6 +38,9 @@
 		3EFF69781D4545A5001B084F /* left_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EFF69771D4545A5001B084F /* left_filled.png */; };
 		3EFF697A1D4621E8001B084F /* TravellingOTPScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF69791D4621E8001B084F /* TravellingOTPScreenViewController.swift */; };
 		3EFF697C1D464599001B084F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF697B1D464599001B084F /* MapViewController.swift */; };
+		3EFF697F1D4757B9001B084F /* TravellingVehicleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF697E1D4757B9001B084F /* TravellingVehicleService.swift */; };
+		3EFF69811D475907001B084F /* TravellingVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF69801D475907001B084F /* TravellingVehicles.swift */; };
+		3EFF69851D4770D5001B084F /* UIViewController+Travelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF69841D4770D5001B084F /* UIViewController+Travelling.swift */; };
 		F8A56422F0DE931510A94C3A /* Pods_Travelling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7E5B3E557EC4E1024C37DB /* Pods_Travelling.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +102,9 @@
 		3EFF69771D4545A5001B084F /* left_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_filled.png; sourceTree = "<group>"; };
 		3EFF69791D4621E8001B084F /* TravellingOTPScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravellingOTPScreenViewController.swift; sourceTree = "<group>"; };
 		3EFF697B1D464599001B084F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3EFF697E1D4757B9001B084F /* TravellingVehicleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravellingVehicleService.swift; sourceTree = "<group>"; };
+		3EFF69801D475907001B084F /* TravellingVehicles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravellingVehicles.swift; sourceTree = "<group>"; };
+		3EFF69841D4770D5001B084F /* UIViewController+Travelling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Travelling.swift"; sourceTree = "<group>"; };
 		61C275AC51C6AD96348F7D73 /* Pods_TravellingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A94F70AB58A6A79A711DCF0 /* Pods-TravellingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellingUITests/Pods-TravellingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A4DC61ED45A967CB3DD0F20E /* Pods-TravellingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellingUITests/Pods-TravellingUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				3E50683B1D426BB300540E1E /* TravellingError.swift */,
+				3EFF69801D475907001B084F /* TravellingVehicles.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 			children = (
 				3E50682F1D426A2E00540E1E /* TravellingApiService.swift */,
 				3EFF696D1D448B12001B084F /* TravellingStartupService.swift */,
+				3EFF697E1D4757B9001B084F /* TravellingVehicleService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 		3E50683D1D426BF100540E1E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3EFF69841D4770D5001B084F /* UIViewController+Travelling.swift */,
 				3E50683E1D426C0F00540E1E /* TravellingConstants.swift */,
 			);
 			name = Utils;
@@ -571,17 +580,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EFF69851D4770D5001B084F /* UIViewController+Travelling.swift in Sources */,
 				3EFF697C1D464599001B084F /* MapViewController.swift in Sources */,
 				3E50683C1D426BB300540E1E /* TravellingError.swift in Sources */,
 				3E5068301D426A2E00540E1E /* TravellingApiService.swift in Sources */,
 				3E65DB301D41480C00F2DEBE /* Travelling.xcdatamodeld in Sources */,
 				3EFF696E1D448B12001B084F /* TravellingStartupService.swift in Sources */,
 				3E50683F1D426C0F00540E1E /* TravellingConstants.swift in Sources */,
+				3EFF697F1D4757B9001B084F /* TravellingVehicleService.swift in Sources */,
 				3E65DB621D414E6100F2DEBE /* LoggedInViewController.swift in Sources */,
 				3E65DB2A1D41480C00F2DEBE /* LoginViewController.swift in Sources */,
 				3E65DB281D41480C00F2DEBE /* AppDelegate.swift in Sources */,
 				3EFF697A1D4621E8001B084F /* TravellingOTPScreenViewController.swift in Sources */,
 				3EFF69761D4530E0001B084F /* TravellingMobileDetailsViewController.swift in Sources */,
+				3EFF69811D475907001B084F /* TravellingVehicles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

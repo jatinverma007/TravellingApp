@@ -16,7 +16,7 @@ class TravellingOTPScreenViewController: UIViewController {
     @IBOutlet weak var otpTextField: IsaoTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        otpTextField.text = String(NSUserDefaults.standardUserDefaults().objectForKey("otp")!)
+        self.otpTextField.becomeFirstResponder()
         self.enterOTPButton.backgroundColor = UIColor.blueColor()
         self.enterOTPButton.layer.cornerRadius = 5
     }
@@ -29,19 +29,31 @@ class TravellingOTPScreenViewController: UIViewController {
     @IBAction func verifyOTP(sender: UIButton) {
         
 //        var params = [String:AnyObject]()
-//        params = [
-//            "did" : deviceId,
-//            "mobile" : 9868101211
-//        ]
-//        Alamofire.request(.POST, "http://staging.app-api.dride.in/api/v1/verify", parameters: params)
-//            .responseJSON { response in
-//                if let JSON = response.result.value {
-//                    print("JSON: \(JSON)")
-//                }
-//        }
+////        params = [
+////            "did" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
+////            "mobile" : "9868101211",
+////            "val_at" : "1469532728"
+////        ]
+////        Alamofire.request(.POST, "http://staging.app-api.dride.in/api/v1/verify", parameters: params)
+////            .responseJSON { response in
+////                if let JSON = response.result.value {
+////                    print("JSON: \(JSON)")
+////                }
+////        }
+//        
+//        TravellingApiService.request(.POST, url: "/verify", params: params, encoding: .URL, success: <#T##((JSON!) -> Void)?##((JSON!) -> Void)?##(JSON!) -> Void#>, failure: <#T##((TravellingError) -> Void)?##((TravellingError) -> Void)?##(TravellingError) -> Void#>)
+        print(otpTextField.text)
+        let otp = NSUserDefaults.standardUserDefaults().objectForKey("otp") as! String
+        print(otp)
+        if otpTextField.text == otp {
+            let nvc = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as! MapViewController
+            self.presentViewController(nvc, animated: true, completion: nil)
+        }
+        else
+        {
+            self.showTextHUD("OTP Incorrect")
+        }
         
-        let nvc = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as! MapViewController
-        self.navigationController?.pushViewController(nvc, animated: true)
 
     }
    

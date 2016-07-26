@@ -9,9 +9,9 @@
 struct TravellingConstants {
     // MARK: Services
     struct Services {
-        struct News {
-            static let server = " staging.app-api.dride.in/api/v1/"
-            static let baseURL = "http://" + TravellingConstants.Services.News.server
+        struct Dride {
+            static let server = "staging.app-api.dride.in/api/v1/"
+            static let baseURL = "http://" + TravellingConstants.Services.Dride.server
         }
     }
     

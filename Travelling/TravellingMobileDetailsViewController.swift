@@ -23,28 +23,32 @@ class TravellingMobileDetailsViewController: UIViewController,ValidationDelegate
     @IBOutlet weak var policy: UILabel!
     let validator = Validator()
 
-
+    var params = [String:AnyObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //For dismiss keyboard when user tabs on view
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TravellingMobileDetailsViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         validate()
         nameTextField.becomeFirstResponder()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-
-    }
-
     //MARK:- function for checking validation
     func validationSuccessful() {
-        gettingOTP()
-        let nvc = self.storyboard?.instantiateViewControllerWithIdentifier("TravellingOTPScreenViewController") as! TravellingOTPScreenViewController
-        self.navigationController?.pushViewController(nvc, animated: true)
+        params = [
+            "name" : nameTextField.text!,
+            "email" : emailTexrField.text!,
+            "mobile" : mobileNumberTextField.text!,
+            "did" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
+            "onesignal_id" : 2,
+            "fbid" : "232"
+        ]
+        gettingOTP(params)
         
     }
     func validationFailed(errors:[UITextField:ValidationError]) {
+        self.hideHUD()
     }
     
     func validate(){
@@ -62,8 +66,11 @@ class TravellingMobileDetailsViewController: UIViewController,ValidationDelegate
         
     }
     
+    //MARK:-Register button click
     @IBAction func registerAllDetailsButtonTapped(sender: UIButton) {
+        self.showProgressHUD()
         validator.validate(self)
+        
 
     }
     @IBAction func termsOfUse(sender: UIButton) {
@@ -79,27 +86,18 @@ class TravellingMobileDetailsViewController: UIViewController,ValidationDelegate
     func dismissKeyboard() {
         view.endEditing(true)
     }
-    func gettingOTP(){
-        var params = [String:AnyObject]()
-        params = [
-            "name" : "jatin",
-            "email" : "jatin.v1997@gmail.com",
-            "mobile" : mobileNumberTextField.text!,
-            "did" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
-            "onesignal_id" : 2,
-            "fbid" : "324242"
-        ]
-        Alamofire.request(.POST, "http://staging.app-api.dride.in/api/v1/users", parameters: params)
-            .responseJSON { response in
-                               if let JSON = response.result.value {
-                    
-                    let otp = JSON["otp"]
-                    NSUserDefaults.standardUserDefaults().setObject(otp!, forKey: "otp")
-                    let nvc = self.storyboard?.instantiateViewControllerWithIdentifier("TravellingOTPScreenViewController") as! TravellingOTPScreenViewController
-                    self.navigationController?.pushViewController(nvc, animated: true)
-                    
-                }
+    func gettingOTP(parameters:[String:AnyObject]){
+        TravellingApiService.request(.POST, url: "/users", params: parameters, encoding: .URL, success: { (json) in
+            let otp = json["otp"].string
+            NSUserDefaults.standardUserDefaults().setObject(otp, forKey: "otp")
+            self.hideHUD()
+            let nvc = self.storyboard?.instantiateViewControllerWithIdentifier("TravellingOTPScreenViewController") as! TravellingOTPScreenViewController
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loginWithMobile")
+            self.navigationController?.pushViewController(nvc, animated: true)
+            }) { (error) in
+                self.showErrorHUD(error.message)
         }
+    
         
         
     }

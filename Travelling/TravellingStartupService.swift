@@ -19,13 +19,6 @@ class TravellingStartupService {
 //                failure(error)
 //        }
 //    }
-    
-    class func getCabDetails(params: [String:AnyObject], success : (JSON) -> JSON , failure : (TravellingError) -> Void ){
-        
-        TravellingApiService.request(.POST, url: "products", params: params, encoding: .URL, success: { (json) in
-            print(json)
-            }) { (error) in
-                failure(error)
-        }
-    }
+//    
+
 }

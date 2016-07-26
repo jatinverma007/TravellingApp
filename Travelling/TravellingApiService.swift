@@ -20,7 +20,7 @@ class TravellingApiService {
     
     class func isReachable() -> Bool {
         do {
-            let reachability = try Reachability(hostname: TravellingConstants.Services.News.baseURL)
+            let reachability = try Reachability(hostname: TravellingConstants.Services.Dride.baseURL)
             if reachability.isReachable() {
                 return true
             }
@@ -33,7 +33,7 @@ class TravellingApiService {
     class func request(method: Alamofire.Method, url: String, params: [String: AnyObject]?, encoding: Alamofire.ParameterEncoding = .URL,success: ((JSON!) -> Void)?, failure: ((TravellingError) -> Void)?) {
         
         if TravellingApiService.isReachable() {
-            let absoluteURL = TravellingConstants.Services.News.baseURL + url
+            let absoluteURL = TravellingConstants.Services.Dride.baseURL + url
             if alamofireManager == nil {
                 let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
                 alamofireManager = Alamofire.Manager(configuration: configuration)
